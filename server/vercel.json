@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/item-attribute/(.*)", "destination": "/api/static/item-attribute/$1" },
+    { "source": "/items/(.*)", "destination": "/api/static/items/$1" },
+    { "source": "/category/(.*)", "destination": "/api/static/category/$1" },
+    { "source": "/(.*)", "destination": "/api" }
+  ],
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    }
+  }
+}

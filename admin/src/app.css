@@ -1,0 +1,20 @@
+@layer components {
+    .custom-scroll {
+      @apply overflow-x-auto overflow-y-hidden;
+      scroll-behavior: smooth;
+    }
+  
+    .custom-scroll::-webkit-scrollbar {
+      height: 8px;
+    }
+  
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+  
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+  

@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Product Catalog Card Design</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <style>
+    /* ============================================
+       CSS RESET & BASE STYLES
+       ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fff;
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ============================================
+       LAYOUT COMPONENTS
+       ============================================ */
+    .container {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .action-buttons {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* ============================================
+       BUTTON STYLES
+       ============================================ */
+    .download-button,
+    .view-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-button {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    .download-button:hover {
+      background-color: #218838;
+    }
+
+    .view-button {
+      background-color: #007BFF;
+      color: #fff;
+    }
+
+    .view-button:hover {
+      background-color: #0056b3;
+    }
+
+    .copy-button {
+      background-color: #6c757d;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copy-button:hover {
+      background-color: #5a6268;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .copy-button:active {
+      transform: translateY(0);
+    }
+
+    .download-button:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
+    }
+
+    /* ============================================
+       PRODUCT CARD COMPONENTS
+       ============================================ */
+    .product-card {
+      width: 100%;
+      height: 11in;
+      max-height: 11in;
+      min-height: 11in;
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      float: none;
+      clear: both;
+      transform: none;
+    }
+
+    /* Image section - 70% of card height */
+    .product-image {
+      width: 100%;
+      height: 70%;
+      max-height: 70%;
+      min-height: 70%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      display: block;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      border: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+      background-color: #f8f9fa;
+    }
+
+    /* Details section - 30% of card height */
+    .product-details {
+      height: 30%;
+      max-height: 30%;
+      min-height: 30%;
+      width: 100%;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      border: none;
+      z-index: 10;
+    }
+
+    /* Product information styles */
+    .product-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      color: #444;
+      margin: 8px 0;
+      font-weight: 500;
+    }
+
+    .product-description {
+      font-size: 0.75rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    /* ============================================
+       PRINT STYLES
+       ============================================ */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      /* Global print adjustments */
+      * {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+        print-color-adjust: exact;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Poppins', Arial, sans-serif;
+        color: #333;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      /* Hide action buttons in print */
+      .action-buttons {
+        display: none;
+        visibility: hidden;
+      }
+
+      /* Container adjustments */
+      .container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        overflow: hidden;
+      }
+
+      /* Page break control - unified */
+      .product-card {
+        page-break-after: always;
+        break-after: page;
+        page-break-before: auto;
+        break-before: auto;
+        page-break-inside: never;
+        break-inside: never;
+        orphans: 1;
+        widows: 1;
+        height: 11in;
+        max-height: 11in;
+        min-height: 11in;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: block;
+        position: relative;
+        float: none;
+        clear: both;
+        background: #fff;
+        transform: none;
+        -webkit-transform: none;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-font-smoothing: antialiased;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      .product-card:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+
+      /* Image print optimizations */
+      .product-image {
+        width: 100%;
+        height: 70%;
+        max-height: 70%;
+        min-height: 70%;
+        overflow: hidden;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        page-break-inside: never;
+        break-inside: never;
+        page-break-after: avoid;
+        break-after: avoid;
+        float: none;
+        clear: both;
+        transform: none;
+        -webkit-transform: none;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        page-break-inside: never;
+        break-inside: never;
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-before: avoid;
+        break-before: avoid;
+        border: none;
+        margin: 0;
+        padding: 0;
+        float: none;
+        clear: both;
+        position: relative;
+        z-index: 1;
+        transform: none;
+        -webkit-transform: none;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+        print-color-adjust: exact;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+        image-rendering: crisp-edges;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      /* Details print optimizations */
+      .product-details {
+        width: 100%;
+        height: 30%;
+        max-height: 30%;
+        min-height: 30%;
+        overflow: hidden;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        z-index: 10;
+        page-break-inside: never;
+        break-inside: never;
+        page-break-after: avoid;
+        break-after: avoid;
+        float: none;
+        clear: both;
+        display: block;
+        transform: none;
+        -webkit-transform: none;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      .product-title,
+      .product-price {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+      }
+
+      /* Hardware acceleration for better rendering */
+      .product-card,
+      .product-image,
+      .product-image img {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+
+      img {
+        page-break-inside: never;
+        break-inside: never;
+        page-break-after: avoid;
+        break-after: avoid;
+        page-break-before: avoid;
+        break-before: avoid;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    /* Screen view mobile optimizations */
+    @media (max-width: 768px) {
+      .product-card {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .product-image {
+        position: relative;
+        height: auto;
+        min-height: 300px;
+        max-height: none;
+      }
+
+      .product-details {
+        position: relative;
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        background: #fff;
+        padding: 15px;
+      }
+
+      .product-image img {
+        height: auto;
+        max-height: 50vh;
+      }
+
+      .action-buttons {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        margin: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        flex-wrap: wrap;
+      }
+    }
+
+    /* ============================================
+       MOBILE OPTIMIZATIONS
+       ============================================ */
+    @media print and (max-width: 768px),
+    print and (max-device-width: 768px),
+    print and (orientation: portrait),
+    print and (orientation: landscape),
+    print and (hover: none),
+    print and (pointer: coarse) {
+
+      /* Enhanced mobile print styles */
+      .product-card {
+        height: 11in;
+        width: 100%;
+      }
+    }
+
+    /* Very small mobile devices */
+    @media print and (max-width: 375px) {
+      .product-card {
+        height: 11in;
+        width: 100%;
+      }
+    }
+
+    /* Landscape orientation */
+    @media print and (orientation: landscape) and (max-width: 768px) {
+      .product-card {
+        height: 8.5in;
+        width: 100%;
+      }
+    }
+
+    /* Portrait orientation */
+    @media print and (orientation: portrait) and (max-width: 768px) {
+      .product-card {
+        height: 11in;
+        width: 100%;
+      }
+    }
+
+    /* iOS Safari specific */
+    @supports (-webkit-touch-callout: none) {
+      @media print {
+
+        .product-card,
+        .product-image,
+        .product-image img,
+        .product-details {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+      }
+    }
+
+    /* Android Chrome specific */
+    @media print and (-webkit-min-device-pixel-ratio: 0) {
+      .product-card {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button class="download-button" onclick="downloadPDF()">Download PDF</button>
+    <button class="view-button" onclick="printWithImageCheck()">Print/View</button>
+    <button class="copy-button" onclick="copyUrl()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      Copy URL Link
+    </button>
+  </div>
+
+  <!-- Product Catalog Container -->
+  <div class="container">
+    <% const
+      defaultImage="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAQlBMVEX///+hoaGenp6ampr39/fHx8fOzs7j4+P8/Pyvr6/d3d3FxcX29va6urqYmJjs7OzU1NSlpaW1tbWtra3n5+e/v78TS0zBAAACkUlEQVR4nO3b63KCMBCGYUwUUVEO6v3fagWVY4LYZMbZnff51xaZ5jON7CZNEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQb5tvI8qzX4/nH84XG5Upfj2ir2V2E5fZ/XpIX9saMnhkYLIkiyRJjdgMoiEDMmiQgfwM8rSu77ew2wnPoLTmwdZBs0J2BuXrYckcQm4nOoP+WcmWAbcTnUHZPy9eA24nOoN7n0HI54ToDM5k8PjluwyqgNuJzqDoaugPg8gWZ4noDAYLwuIg75fLeeHHsjNIzrZJwWwW+0DNsmEWPjiEZ5AcD8ZUu8VZ8HyQMifvBdIz+PS33i8adu+7Qn4Gn1Tdupl7rlCfQb9seosK7RkcBy1o30iVZ5CPOtDW3WhQnsF13IV3v0p3BqfJRoSpXVepzmA/24+yqeMyzRm4tqOs44lSUwa3yfgOri25av5CPRnklR33VlPnrqSZV09qMsiqSWV082xOz1uPajJ49pTM/f115k6guWa6JGjJ4N1lt8fXN2rv/vysjFaSQdFXBc/KKF04ptFPliclGVR9Bu27XCyeVOkmy5OODAZN9rYyyip/AIPJ8qIig+PoXbf7YdPdncFoSdCQQT4ZceV+MhiFMBy0hgyu0yGvOLI17KwpyGBaHK5jtt0N5GcwLw7XZdB31sRn8O+ziqYro8Vn4CwOV+k6a9Iz+PwRsKC7h+gMfMXhKu/OmuwM/MXhKq8yWnYG/uJw5Uxoy2jRGZTBZ/jboxuSM1guDtdNhKazJjiDbNMe0AxzKUVnkO+jEJxBxNtJzWCTxlNLzSB8KehJ/H+mJGYAjaDjzj9SnHZRuXZiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECXP1XDHv7U4SNFAAAAAElFTkSuQmCC"
+      ; %>
+      <% pdfContents.forEach(product=> { %>
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="<%= (!product.image || product.image === '' || product.image === null || typeof product.image === 'undefined') ? defaultImage : product.image %>"
+              alt="Product Image">
+          </div>
+          <div class="product-details">
+            <h2 class="product-title">
+              <%= product.name %>
+            </h2>
+            <p class="product-price">Price: <%= product.sale_price %>
+            </p>
+            <p class="product-price">Stock Quantity: <%= product.stock_quantity %>
+            </p>
+          </div>
+        </div>
+        <% }); %>
+  </div>
+
+  <!-- Required libraries for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+    function copyUrl() {
+      const url = window.location.href;
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.querySelector('.copy-button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!`;
+        btn.style.backgroundColor = '#28a745';
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.backgroundColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy URL: ', err);
+        alert('Failed to copy URL');
+      });
+    }
+
+    // ============================================
+    // PDF GENERATION MODULE - OPTIMIZED FOR 200+ PAGES
+    // ============================================
+
+    const PDFGenerator = (() => {
+      // Configuration optimized for large datasets (200+ pages)
+      const CONFIG = {
+        // Increased timeout significantly for 200 pages (could take 5-10 minutes)
+        PDF_TIMEOUT: 600000, // 10 minutes
+        // Reduced delay for faster processing
+        PROCESS_DELAY: 100, // Reduced from 300ms to 100ms
+        // Optimized canvas scale for performance vs quality balance
+        CANVAS_SCALE: 2, // Increased from 1.5 to 2 for better clarity
+        IMAGE_QUALITY: 0.9, // Slightly reduced quality for faster processing
+        PROCESSING_INTERVAL: 200,
+        // Progress update interval (every N cards)
+        PROGRESS_UPDATE_INTERVAL: 10
+      };
+
+      // ============================================
+      // UTILITY FUNCTIONS
+      // ============================================
+
+      const DeviceDetector = {
+        isMobile() {
+          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        },
+
+        isMobilePrint() {
+          return this.isMobile() ||
+            (window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+        }
+      };
+
+      const LibraryLoader = {
+        async waitForLibraries(maxAttempts = 100) {
+          return new Promise((resolve, reject) => {
+            let attempts = 0;
+
+            const checkLibraries = () => {
+              attempts++;
+
+              const jsPDFLib = this.getJsPDF();
+              const html2canvasLib = this.getHtml2Canvas();
+
+              if (jsPDFLib && html2canvasLib) {
+                console.log('✓ PDF libraries loaded successfully');
+                resolve({
+                  jsPDF: jsPDFLib,
+                  html2canvas: html2canvasLib
+                });
+              } else if (attempts >= maxAttempts) {
+                console.error('✗ PDF libraries failed to load after', maxAttempts, 'attempts');
+                reject(new Error('PDF libraries failed to load'));
+              } else {
+                setTimeout(checkLibraries, 100);
+              }
+            };
+
+            checkLibraries();
+          });
+        },
+
+        getJsPDF() {
+          if (typeof jsPDF !== 'undefined') return jsPDF;
+          if (window.jsPDF) return window.jsPDF;
+          if (window.jspdf && window.jspdf.jsPDF) return window.jspdf.jsPDF;
+          return null;
+        },
+
+        getHtml2Canvas() {
+          if (typeof html2canvas !== 'undefined') return html2canvas;
+          if (window.html2canvas) return window.html2canvas;
+          return null;
+        }
+      };
+
+      const ImageManager = {
+        async waitForImagesLoaded() {
+          const images = document.querySelectorAll('img');
+
+          if (images.length === 0) {
+            return Promise.resolve();
+          }
+
+          return new Promise((resolve) => {
+            const loadedImages = new Set();
+            const totalImages = images.length;
+
+            images.forEach(img => {
+              if (img.complete && img.naturalHeight !== 0) {
+                loadedImages.add(img);
+              } else {
+                img.addEventListener('load', () => {
+                  loadedImages.add(img);
+                  if (loadedImages.size === totalImages) {
+                    resolve();
+                  }
+                });
+                img.addEventListener('error', () => {
+                  loadedImages.add(img);
+                  if (loadedImages.size === totalImages) {
+                    resolve();
+                  }
+                });
+              }
+            });
+
+            // Check if all images are already loaded
+            if (loadedImages.size === totalImages) {
+              resolve();
+            }
+          });
+        }
+      };
+
+      const UIManager = {
+        updateButton(button, text, disabled = false) {
+          if (button) {
+            button.textContent = text;
+            button.disabled = disabled;
+          }
+        },
+
+        updateProgress(current, total) {
+          const percentage = Math.round((current / total) * 100);
+          const button = document.querySelector('.download-button');
+          if (button) {
+            button.textContent = `Processing ${current}/${total} (${percentage}%)`;
+          }
+        },
+
+        showError(message) {
+          console.error(message);
+          alert(message);
+        },
+
+        showSuccess(message) {
+          alert(message);
+        }
+      };
+
+      // ============================================
+      // PDF GENERATION CORE - OPTIMIZED
+      // ============================================
+
+      const PDFCore = {
+        async generatePDF() {
+          console.log('Starting PDF generation for large dataset...');
+
+          try {
+            // Step 1: Wait for libraries
+            console.log('Step 1: Loading PDF libraries...');
+            const libs = await LibraryLoader.waitForLibraries();
+            console.log('✓ Libraries loaded');
+
+            // Step 2: Wait for images
+            console.log('Step 2: Waiting for images to load...');
+            await ImageManager.waitForImagesLoaded();
+            console.log('✓ Images loaded');
+
+            // Step 3: Create and process PDF
+            console.log('Step 3: Creating PDF...');
+            const result = await this.createPDF(libs.jsPDF, libs.html2canvas);
+            console.log('✓ PDF creation completed');
+
+            return result;
+          } catch (error) {
+            console.error('Error in PDF generation:', error);
+            throw error;
+          }
+        },
+
+        async createPDF(jsPDFLib, html2canvasLib) {
+          const container = document.querySelector('.container');
+          const productCards = container?.querySelectorAll('.product-card');
+
+          if (!container) {
+            throw new Error('Container not found');
+          }
+
+          if (!productCards || productCards.length === 0) {
+            throw new Error('No product cards found');
+          }
+
+          console.log(`Found ${productCards.length} product cards - Optimized for large dataset`);
+
+          // Create PDF instance
+          let pdf;
+          try {
+            pdf = new jsPDFLib({
+              orientation: 'portrait',
+              unit: 'mm',
+              format: 'a4'
+            });
+            console.log('✓ PDF created with options');
+          } catch (e1) {
+            try {
+              pdf = new jsPDFLib('p', 'mm', 'a4');
+              console.log('✓ PDF created with alternative constructor');
+            } catch (e2) {
+              try {
+                pdf = new jsPDFLib();
+                console.log('✓ PDF created with default constructor');
+              } catch (e3) {
+                throw new Error('Failed to create PDF: ' + e3.message);
+              }
+            }
+          }
+
+          // Process all product cards with progress updates
+          const processedCount = await this.processProductCards(pdf, productCards, html2canvasLib);
+          return { pdf, processedCount };
+        },
+
+        async processProductCards(pdf, productCards, html2canvasLib) {
+          let processedCount = 0;
+          const totalCards = productCards.length;
+
+          console.log(`Starting batch processing of ${totalCards} cards...`);
+
+          for (let i = 0; i < totalCards; i++) {
+            const card = productCards[i];
+
+            // Update progress every 10 cards or on first/last card
+            if (i === 0 || i % CONFIG.PROGRESS_UPDATE_INTERVAL === 0 || i === totalCards - 1) {
+              UIManager.updateProgress(i + 1, totalCards);
+              console.log(`Progress: ${i + 1}/${totalCards} (${Math.round(((i + 1) / totalCards) * 100)}%)`);
+            }
+
+            try {
+              await this.processCard(card, i, pdf, html2canvasLib);
+              processedCount++;
+
+              if ((i + 1) % 20 === 0) {
+                console.log(`✓ Processed ${i + 1} cards successfully`);
+              }
+
+              // Reduced delay for better performance
+              if (i < totalCards - 1) {
+                await new Promise(resolve => setTimeout(resolve, CONFIG.PROCESS_DELAY));
+              }
+            } catch (error) {
+              console.error(`✗ Error processing card ${i + 1}:`, error);
+              // Continue with next card even if one fails
+            }
+          }
+
+          console.log(`✓ Batch processing completed: ${processedCount}/${totalCards} cards processed`);
+          return processedCount;
+        },
+
+        async processCard(card, index, pdf, html2canvasLib) {
+          // Create canvas from card with optimized settings
+          const canvas = await html2canvasLib(card, {
+            scale: CONFIG.CANVAS_SCALE,
+            useCORS: true,
+            allowTaint: true,
+            logging: false,
+            backgroundColor: '#ffffff',
+            width: card.scrollWidth || card.offsetWidth || 794,
+            height: card.scrollHeight || card.offsetHeight || 1123,
+            // Additional optimizations for large batch processing
+            foreignObjectRendering: false,
+            imageTimeout: 15000,
+            removeContainer: true
+          });
+
+          // Convert to image data
+          const imgData = canvas.toDataURL('image/jpeg', CONFIG.IMAGE_QUALITY);
+
+          if (!imgData || imgData === 'data:,') {
+            throw new Error(`Failed to convert canvas ${index + 1} to image data`);
+          }
+
+          // Add new page if not first card
+          if (index > 0) {
+            pdf.addPage();
+          }
+
+          // Get PDF dimensions and calculate placement
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = pdf.internal.pageSize.getHeight();
+
+          const imgWidth = canvas.width;
+          const imgHeight = canvas.height;
+
+          // Convert pixels to mm
+          const pxToMm = 0.264583;
+          const ratio = Math.min(
+            pdfWidth / (imgWidth * pxToMm),
+            pdfHeight / (imgHeight * pxToMm)
+          );
+
+          const width = (imgWidth * pxToMm) * ratio;
+          const height = (imgHeight * pxToMm) * ratio;
+          const x = (pdfWidth - width) / 2;
+          const y = (pdfHeight - height) / 2;
+
+          // Add image to PDF
+          pdf.addImage(imgData, 'JPEG', x, y, width, height, undefined, 'FAST');
+        }
+      };
+
+      // ============================================
+      // MAIN EXPORT FUNCTIONS
+      // ============================================
+
+      return {
+        CONFIG,
+        ImageManager,  // Expose for print function
+
+        async downloadPDF() {
+          console.log('Download PDF button clicked - Large dataset mode');
+
+          const button = document.querySelector('.download-button');
+          const originalText = button?.textContent || 'Download PDF';
+
+          // Initial button update
+          UIManager.updateButton(button, 'Initializing...', true);
+
+          // Get total count for progress estimation
+          const productCards = document.querySelectorAll('.product-card');
+          const totalPages = productCards.length;
+          console.log(`Preparing to process ${totalPages} pages`);
+
+          // Set up extended timeout for large datasets
+          const timeoutId = setTimeout(() => {
+            UIManager.updateButton(button, originalText, false);
+            UIManager.showError(`PDF generation timed out after 10 minutes. Processed pages may be incomplete. Try again or use smaller batches.`);
+          }, CONFIG.PDF_TIMEOUT);
+
+          try {
+            const { pdf, processedCount } = await PDFCore.generatePDF();
+
+            clearTimeout(timeoutId);
+
+            if (processedCount === 0) {
+              throw new Error('No cards were processed successfully');
+            }
+
+            console.log(`✓ PDF generation completed: ${processedCount} pages processed`);
+            console.log('Step 4: Saving PDF file...');
+
+            // Update button to show saving state
+            UIManager.updateButton(button, 'Saving PDF...', true);
+
+            // Small delay to ensure PDF is fully constructed
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            try {
+              // Try standard save method first
+              console.log('Attempting standard save method...');
+              pdf.save('catalog-products.pdf');
+              console.log('✓ PDF save command executed');
+
+              // Wait a moment for download to initiate
+              await new Promise(resolve => setTimeout(resolve, 1000));
+
+              UIManager.updateButton(button, originalText, false);
+              console.log('✓ PDF download initiated successfully!');
+              UIManager.showSuccess(`PDF downloaded successfully! (${processedCount} pages)`);
+            } catch (saveError) {
+              console.warn('Standard save failed, trying blob method:', saveError);
+              await this.saveWithBlob(pdf, processedCount, originalText, button);
+            }
+          } catch (error) {
+            clearTimeout(timeoutId);
+            UIManager.updateButton(button, originalText, false);
+
+            console.error('PDF generation failed:', error);
+
+            if (error.message.includes('libraries')) {
+              UIManager.showError(`PDF libraries failed to load. Please check your internet connection and refresh the page.`);
+            } else {
+              UIManager.showError(`PDF generation failed: ${error.message}. For large datasets (200+ pages), consider using smaller batches or the Print/View option.`);
+            }
+          }
+        },
+
+        async saveWithBlob(pdf, processedCount, originalText, button) {
+          try {
+            console.log('Using blob save method as fallback...');
+            console.log('Creating PDF blob...');
+            const pdfBlob = pdf.output('blob');
+            console.log(`✓ PDF blob created (size: ${(pdfBlob.size / 1024 / 1024).toFixed(2)} MB)`);
+
+            const url = URL.createObjectURL(pdfBlob);
+            console.log('✓ Blob URL created');
+
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'catalog-products.pdf';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            console.log('✓ Download link created and added to DOM');
+
+            // Trigger download
+            link.click();
+            console.log('✓ Download triggered');
+
+            // Wait for download to initiate
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Clean up
+            setTimeout(() => {
+              if (document.body.contains(link)) {
+                document.body.removeChild(link);
+              }
+              URL.revokeObjectURL(url);
+              console.log('✓ Cleanup completed');
+            }, 100);
+
+            UIManager.updateButton(button, originalText, false);
+            console.log('✓ PDF download initiated successfully via blob method!');
+            UIManager.showSuccess(`PDF downloaded successfully! (${processedCount} pages)`);
+          } catch (error) {
+            console.error('Blob save failed:', error);
+            UIManager.updateButton(button, originalText, false);
+            UIManager.showError('Error saving PDF. Please try using the Print/View button instead.');
+          }
+        },
+
+        enhanceCrossDeviceStability() {
+          const style = document.createElement('style');
+          style.textContent = `
+            @media print {
+              .product-card::before,
+              .product-card::after {
+                content: '';
+                display: none;
+              }
+            }
+          `;
+          document.head.appendChild(style);
+
+          if (DeviceDetector.isMobilePrint()) {
+            console.log('Mobile print detected - using optimized PDF generation');
+
+            window.addEventListener('load', () => {
+              setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+
+                const productCards = document.querySelectorAll('.product-card');
+                productCards.forEach((card, index) => {
+                  card.style.pageBreakAfter = index === productCards.length - 1 ? 'auto' : 'always';
+                  card.style.breakAfter = index === productCards.length - 1 ? 'auto' : 'page';
+                  card.style.pageBreakInside = 'never';
+                  card.style.breakInside = 'never';
+                });
+              }, 800);
+            });
+          }
+        },
+
+        testLibraries() {
+          setTimeout(() => {
+            const jsPDFLib = LibraryLoader.getJsPDF();
+            const html2canvasLib = LibraryLoader.getHtml2Canvas();
+
+            console.log('Library check:');
+            console.log('- jsPDF:', jsPDFLib ? '✓ Available' : '✗ Not found');
+            console.log('- html2canvas:', html2canvasLib ? '✓ Available' : '✗ Not found');
+
+            if (!jsPDFLib || !html2canvasLib) {
+              console.warn('⚠ Some PDF libraries are missing. Download may not work.');
+            }
+          }, 2000);
+        }
+      };
+    })();
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+
+    // Make functions globally available
+    window.downloadPDF = () => PDFGenerator.downloadPDF();
+
+    // Print with image loading check
+    window.printWithImageCheck = async () => {
+      console.log('Print button clicked - checking images...');
+
+      const viewButton = document.querySelector('.view-button');
+      const originalText = viewButton?.textContent || 'Print/View';
+
+      try {
+        // Update button to show loading state
+        if (viewButton) {
+          viewButton.textContent = 'Loading images...';
+          viewButton.disabled = true;
+        }
+
+        // Step 1: Force load all images by removing lazy loading
+        console.log('Step 1: Force loading all images...');
+        const allImages = document.querySelectorAll('img');
+        allImages.forEach(img => {
+          // Remove lazy loading attribute if present
+          if (img.loading === 'lazy') {
+            img.loading = 'eager';
+          }
+          // Force reload by re-setting src
+          const currentSrc = img.src;
+          if (currentSrc && !img.complete) {
+            img.src = '';
+            img.src = currentSrc;
+          }
+        });
+
+        // Step 2: Scroll through page to trigger any viewport-based loading
+        console.log('Step 2: Scrolling through page to trigger image loading...');
+        const productCards = document.querySelectorAll('.product-card');
+        if (productCards.length > 0) {
+          // Scroll to bottom to trigger all lazy images
+          window.scrollTo(0, document.body.scrollHeight);
+          await new Promise(resolve => setTimeout(resolve, 500));
+
+          // Scroll back to top
+          window.scrollTo(0, 0);
+          await new Promise(resolve => setTimeout(resolve, 300));
+        }
+
+        // Step 3: Wait for all images to load
+        console.log('Step 3: Waiting for all images to complete loading...');
+        await PDFGenerator.ImageManager.waitForImagesLoaded();
+        console.log('✓ All images loaded successfully!');
+
+        // Small delay to ensure rendering is complete
+        await new Promise(resolve => setTimeout(resolve, 500));
+
+        // Restore button state
+        if (viewButton) {
+          viewButton.textContent = originalText;
+          viewButton.disabled = false;
+        }
+
+        console.log('✓ Opening print dialog...');
+        // Open print dialog
+        window.print();
+      } catch (error) {
+        console.error('Error checking images before print:', error);
+
+        // Restore button state
+        if (viewButton) {
+          viewButton.textContent = originalText;
+          viewButton.disabled = false;
+        }
+
+        // Show print dialog anyway
+        console.warn('Opening print dialog despite errors...');
+        window.print();
+      }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('✓ Catalog PDF module initialized - Optimized for large datasets');
+
+      const downloadButton = document.querySelector('.download-button');
+      if (downloadButton) {
+        downloadButton.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log('Download button clicked via event listener');
+          PDFGenerator.downloadPDF();
+        });
+        console.log('✓ Download button event listener attached');
+      } else {
+        console.error('✗ Download button not found');
+      }
+
+      PDFGenerator.enhanceCrossDeviceStability();
+
+      window.addEventListener('load', () => {
+        PDFGenerator.testLibraries();
+
+        // Show dataset info
+        const productCards = document.querySelectorAll('.product-card');
+        if (productCards.length > 50) {
+          console.log(`📊 Large dataset detected: ${productCards.length} pages`);
+          console.log('⚡ Optimizations enabled for large batch processing');
+        }
+      });
+    });
+
+    // Global error handler
+    window.addEventListener('error', function (e) {
+      if (e.message && e.message.toLowerCase().includes('pdf')) {
+        console.error('PDF-related error:', e);
+        setTimeout(() => {
+          window.print();
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+# Admin Environment Configuration
+
+
+
+# # API Base URL - Production
+VITE_APP_ADMIN_URL=https://admin.medikart24.in
+VITE_APP_STORE_URL=https://medikart24.in
+VITE_APP_SOCKET_URL=https://api.medikart24.in
+VITE_APP_API_BASE_URL=https://api.medikart24.in/api
+VITE_APP_API_SOCKET_URL=https://api.medikart24.in
+
+
+# API Base URL - Development
+# VITE_APP_SOCKET_URL=http://localhost:5056
+# VITE_APP_API_BASE_URL=http://localhost:5056/api
+# VITE_APP_ADMIN_URL=http://localhost:5056
+# VITE_APP_STORE_URL=http://localhost:5056
+# VITE_APP_API_SOCKET_URL=http://localhost:5056
+
+#import.meta.env.VITE_APP_ADMIN_URL
+
+CURRENT_STATE=21
+CURRENT_COUNTRY=101
