@@ -9,7 +9,7 @@ import {
   View,
 } from "@react-pdf/renderer";
 import { useTranslation } from "react-i18next";
-import logoDark from "@/assets/img/logo/shivanya-logo.jpg";
+import logoDark from "@/assets/img/logo/shivanya-logo.png";
 
 Font.register({
   family: "Open Sans",

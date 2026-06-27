@@ -47,7 +47,7 @@ export default defineConfig({
         "src/assets/img/*.png",
         "src/assets/img/*.jepg",
         "src/assets/img/*.webp",
-        "favicon.ico",
+        "favicon.png",
       ],
       manifest: {
         theme_color: "#FFFFFF",
@@ -63,7 +63,7 @@ export default defineConfig({
           "Dashtar : React Grocery & Organic Food Store e-commerce Admin Dashboard",
         icons: [
           {
-            src: "favicon.ico",
+            src: "favicon.png",
             sizes: "48x48",
             type: "image/x-icon",
           },

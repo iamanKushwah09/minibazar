@@ -7,7 +7,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 //internal import
 import getFilteredSidebar from "@/routes/sidebar";
 // import SidebarSubMenu from "SidebarSubMenu";
-import logoDark from "@/assets/img/logo/shivanya-logo.jpg";
+import logoDark from "@/assets/img/logo/shivanya-logo.png";
 import { AdminContext } from "@/context/AdminContext";
 import SidebarSubMenu from "@/components/sidebar/SidebarSubMenu";
 

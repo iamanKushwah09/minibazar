@@ -43,10 +43,9 @@ export default function Footer() {
           <div className="lg:col-span-4 flex flex-col">
             <div className="flex flex-col mb-6">
               <img 
-                src="/shivanya-logo.jpg" 
+                src="/shivanya-logo.png" 
                 alt="Shivanya Fresh Masale" 
-                className="h-14 md:h-16 w-auto object-contain brightness-110 mb-3 drop-shadow-lg" 
-                style={{ maxWidth: '200px' }} 
+                className="w-16 h-16 md:w-20 md:h-20 object-contain mb-3 drop-shadow-lg rounded-full border-2 border-white bg-white p-1 self-start" 
               />
               <span className="text-xl font-black tracking-[0.15em] text-white uppercase">
                 SHIVANYA FRESH <span className="text-blue-500">MASALE</span>

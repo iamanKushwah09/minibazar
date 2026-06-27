@@ -26,11 +26,11 @@ export default function Loader({ fullScreen = true, text }: LoaderProps) {
           <div className="absolute inset-6 rounded-full border-4 border-transparent border-b-green-500 border-r-green-500 opacity-80 animate-[spin_1.5s_linear_infinite]" />
           
           {/* Logo container inside: perfectly centered with pulse */}
-          <div className="absolute w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-full bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)] flex items-center justify-center p-3 animate-pulse">
+          <div className="absolute w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-full shadow-[0_0_20px_rgba(0,0,0,0.1)] flex items-center justify-center animate-pulse overflow-hidden bg-white border-2 border-white/20 p-1">
             <img
-              src="/shivanya-logo.jpg"
+              src="/shivanya-logo.png"
               alt="Shivanya Logo"
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain rounded-full"
             />
           </div>
         </div>

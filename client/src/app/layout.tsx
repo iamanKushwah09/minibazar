@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "Discover the latest Indian spices from Shivanya Fresh Masale of Companies. Quality, care, and health in every product.",
   keywords: "Shivanya Fresh Masale, Indian spices, masale, ecommerce",
   icons: {
-    icon: "/shivanya-logo.jpg",
+    icon: "/shivanya-logo.png",
   },
 };
 
