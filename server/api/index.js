@@ -219,13 +219,13 @@ app.use((err, req, res, next) => {
 
 // Serve static files from the "dist" directory
 app.use("/static", express.static("public"));
-app.use("/", express.static(path.join(__dirname, "../uploadFile_masale")));
+app.use("/", express.static(path.join(__dirname, process.env.FILE_UPLOAD_FOLDER || "../uploadFile_masale")));
 // Route to serve files properly with a base path for images and others
 app.get("/api/static/:folder/:filename", (req, res) => {
   const { folder, filename } = req.params;
   const filePath = path.join(
     __dirname,
-    "../uploadFile_masale",
+    process.env.FILE_UPLOAD_FOLDER || "../uploadFile_masale",
     folder,
     filename,
   );

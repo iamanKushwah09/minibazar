@@ -123,7 +123,7 @@ export default function AboutPage() {
     {
       name: 'Mr Rajendra Barua',
       role: 'Founder & Whole Time Director',
-      quote: 'Welcome to Shivanya Masale. At the helm of our journey, I am driven by a vision of excellence, integrity, and authenticity. With our collective expertise, we aim to redefine the standards of culinary excellence and global spice distribution.',
+      quote: 'Welcome to Shivanya Fresh Masale. At the helm of our journey, I am driven by a vision of excellence, integrity, and authenticity. With our collective expertise, we aim to redefine the standards of culinary excellence and global spice distribution.',
       bio: 'Rajendra has over 25 years of pioneering experience in the spice trade and agricultural management. His strategic leadership has successfully scaled our operations, building trusted networks across 50+ countries. He holds an MBA in Agri-Business Management and has dedicated his career to improving global access to authentic flavors.',
       image: '/founder.jpeg',
       accentColor: 'text-blue-600',
@@ -164,7 +164,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <img 
           src="/about-bg.jpg"
-          alt="Shivanya masale Background"
+          alt="Shivanya Fresh Masale Background"
           className="absolute inset-0 z-0 w-full h-full object-cover"
         />
         {/* Dark Gradient Overlay for Readability */}
@@ -173,7 +173,7 @@ export default function AboutPage() {
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">About Shivanya Masale</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">About Shivanya Fresh Masale</h1>
             <p className="text-xl md:text-2xl mb-8 drop-shadow-md text-blue-50">
               Your destination for premium spices. Quality, aroma, and authentic taste in every pinch.
             </p>
@@ -190,7 +190,7 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
                 <p className="text-lg text-gray-600 mb-6">
-                  Shivanya Masale was born out of a passionate desire to bring the most authentic, 
+                  Shivanya Fresh Masale was born out of a passionate desire to bring the most authentic, 
                   unadulterated spices directly from the finest farms to your kitchen. 
                   Our commitment to purity and traditional flavors runs deep in everything we do.
                 </p>
@@ -209,7 +209,7 @@ export default function AboutPage() {
               <div className="rounded-2xl h-[400px] flex items-center justify-center overflow-hidden shadow-2xl ring-1 ring-gray-900/5">
                 <img 
                   src="/company-img.jpg" 
-                  alt="Shivanya masale Research Facility" 
+                  alt="Shivanya Fresh Masale Research Facility" 
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

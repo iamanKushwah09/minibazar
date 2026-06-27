@@ -273,7 +273,7 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
                   <span><kbd className="px-1.5 py-0.5 bg-white border border-gray-200 rounded text-gray-500">Esc</kbd> to close</span>
                 </div>
                 <div className="font-medium">
-                  Shivanya Masale <span className="text-blue-500">Global Search</span>
+                  Shivanya Fresh Masale <span className="text-blue-500">Global Search</span>
                 </div>
               </div>
             </DialogPanel>
@@ -283,3 +283,4 @@ export default function GlobalSearch({ isOpen, onClose }: GlobalSearchProps) {
     </Transition>
   );
 }
+

@@ -28,7 +28,7 @@ export default function Loader({ fullScreen = true, text }: LoaderProps) {
           {/* Logo container inside: perfectly centered with pulse */}
           <div className="absolute w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-full bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)] flex items-center justify-center p-3 animate-pulse">
             <img
-              src="/logo-v2.png"
+              src="/shivanya-logo.jpg"
               alt="Shivanya Logo"
               className="w-full h-full object-contain"
             />
@@ -51,3 +51,4 @@ export default function Loader({ fullScreen = true, text }: LoaderProps) {
     </div>
   );
 }
+

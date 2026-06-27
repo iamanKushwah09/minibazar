@@ -40,5 +40,6 @@ export default function RouteLoader() {
 
   if (!loading) return null;
 
-  return <Loader text="Shivanya Masale" />;
+  return <Loader text="Shivanya Fresh Masale" />;
 }
+

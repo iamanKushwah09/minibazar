@@ -37,3 +37,4 @@ export const getQuantityStep = (product: any): number => {
   if (product?.conversion_factor) return Number(product.conversion_factor);
   return 1;
 };
+

@@ -198,12 +198,12 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" onClick={() => { dispatch(clearFilters()); dispatch(setSearchQuery('')); }} className="flex items-center flex-shrink-0 group min-w-0 mr-2 sm:mr-4 md:mr-6 lg:mr-8">
             <div className="flex items-center space-x-2 sm:space-x-3">
-              <img src="/logo-v2.png" alt="Shivanya masale" className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+              <img src="/shivanya-logo.jpg" alt="Shivanya Fresh Masale" className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
               <div className="flex flex-col justify-center">
                 <span className="text-[10px] sm:text-sm md:text-lg lg:text-xl font-black text-gray-900 tracking-tight leading-none uppercase">
-                  Shivanya 
+                  Shivanya Fresh
                 </span>
-                <span className="text-[6px] sm:text-[9px] md:text-xs font-black text-blue-600 tracking-[0.2em] uppercase mt-0.5 sm:mt-1">
+                <span className="text-[6px] sm:text-[9px] md:text-xs font-black text-[#0d9e6d] tracking-[0.2em] uppercase mt-0.5 sm:mt-1">
                   Masale
                 </span>
               </div>
@@ -531,7 +531,7 @@ export default function Header() {
           {/* Header */}
           <div className="flex justify-between items-center pb-4 border-b border-gray-100 flex-shrink-0">
             <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center">
-              <img src="/logo-v2.png" alt="Logo" className="h-8 sm:h-10 w-auto object-contain" />
+              <img src="/shivanya-logo.jpg" alt="Logo" className="h-8 sm:h-10 w-auto object-contain" />
             </Link>
             <button onClick={() => setIsMenuOpen(false)} className="p-2 sm:p-3 bg-gray-100 text-gray-900 rounded-full active:scale-90 transition-all hover:bg-gray-200">
               <XMarkIcon className="w-5 sm:w-6 h-5 sm:h-6" />
@@ -763,7 +763,7 @@ export default function Header() {
           {/* Header */}
           <div className="flex justify-between items-center pb-4 border-b border-gray-100 flex-shrink-0">
             <Link href="/" onClick={() => setIsMenuOpen(false)} className="flex items-center">
-              <img src="/logo-v2.png" alt="Shivanya Masale" className="h-12 sm:h-16 w-auto object-contain scale-[1.5] origin-left" />
+              <img src="/shivanya-logo.jpg" alt="Shivanya Fresh Masale" className="h-12 sm:h-16 w-auto object-contain scale-[1.5] origin-left" />
             </Link>
             <button onClick={() => setIsSearchOpen(false)} className="p-2 sm:p-3 bg-gray-100 text-gray-900 rounded-full active:scale-90 transition-all hover:bg-gray-200">
               <XMarkIcon className="w-5 sm:w-6 h-5 sm:h-6" />
@@ -776,7 +776,7 @@ export default function Header() {
               <MagnifyingGlassIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="SEARCH MEDICINES..."
+                placeholder="SEARCH SPICES..."
                 className="w-full pl-12 pr-4 py-3.5 bg-gray-50 border border-transparent focus:border-blue-600 focus:bg-white rounded-2xl text-xs font-black text-gray-900 uppercase tracking-[0.15em] transition-all outline-none"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -857,7 +857,7 @@ export default function Header() {
               <div className="space-y-4">
                 <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.25em] block">Popular Searches</span>
                 <div className="flex flex-wrap gap-2">
-                  {['Medicines', 'Supplements', 'Health Gear', 'Wellness', 'Vitamins'].map(term => (
+                  {['Spices', 'Herbs', 'Masale', 'Seasoning', 'Powder'].map(term => (
                     <button
                       key={term}
                       onClick={() => { setSearchTerm(term); dispatch(setSearchQuery(term)); setIsSearchOpen(false); }}

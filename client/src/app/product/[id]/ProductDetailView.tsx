@@ -193,10 +193,10 @@ export default function ProductDetailView() {
 
             <div className="space-y-1">
               <div className="flex items-end space-x-3">
-                <span className="text-4xl font-black text-gray-900">₹{product.prices.price}</span>
-                {product.prices.originalPrice && product.prices.originalPrice > product.prices.price && (
+                <span className="text-4xl font-black text-gray-900">₹{product.prices?.price}</span>
+                {product.prices?.originalPrice && product.prices?.originalPrice > product.prices?.price && (
                   <>
-                    <span className="text-xl text-gray-400 line-through font-bold mb-1">₹{product.prices.originalPrice}</span>
+                    <span className="text-xl text-gray-400 line-through font-bold mb-1">₹{product.prices?.originalPrice}</span>
                     {discount && (
                       <span className="text-sm font-black text-green-600 bg-green-50 px-2 py-1 rounded-md mb-2">{discount}% OFF</span>
                     )}

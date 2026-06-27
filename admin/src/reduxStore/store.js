@@ -1,4 +1,16 @@
-import storage from "redux-persist/lib/storage";
+const storage = {
+  getItem: (key) => {
+    return Promise.resolve(window.localStorage.getItem(key));
+  },
+  setItem: (key, value) => {
+    window.localStorage.setItem(key, value);
+    return Promise.resolve(value);
+  },
+  removeItem: (key) => {
+    window.localStorage.removeItem(key);
+    return Promise.resolve();
+  },
+};
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import {

@@ -63,9 +63,11 @@ export class ProductService {
     itemGroups: any[];
   }> {
     const response = await api.get<any>(`/products/suggestions?query=${query}`);
+    const data = response.data || {};
     return {
-      ...response.data,
-      suggestions: (response.data.suggestions || []).map(mapProductPrices)
+      suggestions: (data.suggestions || []).map(mapProductPrices),
+      categories: data.categories || [],
+      itemGroups: data.itemGroups || [],
     };
   }
 

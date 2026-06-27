@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shivanya Masale",
-  description: "Discover the latest Indian spices from Shivanya Masale of Companies. Quality, care, and health in every product.",
-  keywords: "shivanya masale, Indian spices, masale, ecommerce",
+  title: "Shivanya Fresh Masale",
+  description: "Discover the latest Indian spices from Shivanya Fresh Masale of Companies. Quality, care, and health in every product.",
+  keywords: "Shivanya Fresh Masale, Indian spices, masale, ecommerce",
   icons: {
-    icon: "/logo-v2.png",
+    icon: "/shivanya-logo.jpg",
   },
 };
 
@@ -50,3 +50,4 @@ export default function RootLayout({
     </html>
   );
 }
+

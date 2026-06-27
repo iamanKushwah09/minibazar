@@ -32,3 +32,4 @@ export const clientShippingApiSlice = createApi({
 });
 
 export const { useCalculateShippingMutation } = clientShippingApiSlice;
+

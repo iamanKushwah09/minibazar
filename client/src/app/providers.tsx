@@ -30,7 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <Provider store={store}>
       {showLoader && (
         <div className={`fixed inset-0 z-[9999] transition-opacity duration-500 ease-in-out ${fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-          <Loader text="Shivanya Masale" />
+          <Loader text="Shivanya Fresh Masale" />
         </div>
       )}
       {children}

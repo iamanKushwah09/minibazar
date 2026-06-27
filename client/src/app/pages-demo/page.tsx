@@ -76,7 +76,7 @@ export default function PagesDemo() {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Pages Demo</h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Explore all the pages we've created for the Shivanya Masale ecommerce website
+              Explore all the pages we've created for the Shivanya Fresh Masale ecommerce website
             </p>
           </div>
         </div>

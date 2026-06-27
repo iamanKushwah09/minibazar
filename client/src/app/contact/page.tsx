@@ -77,7 +77,7 @@ export default function ContactPage() {
         {/* Background Image */}
         <img 
           src="/contact-bg.jpg"
-          alt="Contact Shivanya Masale"
+          alt="Contact Shivanya Fresh Masale"
           className="absolute inset-0 z-0 w-full h-full object-cover"
         />
         {/* Dark Gradient Overlay for Readability */}

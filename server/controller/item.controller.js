@@ -31,7 +31,7 @@ exports.createItem = async (req, res) => {
       );
       req.body.image = uploadedPaths.filter(p => p !== '');
       if (req.body.image.length === 0) {
-        req.body.image = [{ path: '/default/default_image.png', image_url: '' }];
+        req.body.image = [];
       }
     }
 
@@ -203,18 +203,22 @@ exports.updateItemById = async (req, res) => {
     const images = req.body.image;
     if (Array.isArray(images) && images.length > 0) {
       const uploadedPaths = await Promise.all(
-        images
-          .filter((image) => image.base64File && image.fileName)
-          .map(async (image) => {
+        images.map(async (image) => {
+          if (image.base64File && image.fileName) {
             const { base64File, fileName } = image;
             const cleanedBase64File = base64File.split(';base64,').pop();
             return await fileUploadHelper.uploadSingleFile(`items/${item?.item_code || 'unknown'}`, fileName.replace(/\s+/g, ''), cleanedBase64File, true);
-          })
+          }
+          return {
+            path: image.url ? image.url.replace(process.env.BASE_URL, '') : (image.path || ''),
+            image_url: image.url && image.url.startsWith('http') ? image.url : ''
+          };
+        })
       );
       // Replace image array with uploaded paths
       req.body.image = uploadedPaths;
     } else {
-      req.body.image = [{ path: '/default/default_image.png', image_url: '' }];
+      req.body.image = [];
     }
 
     // Process variant images during update

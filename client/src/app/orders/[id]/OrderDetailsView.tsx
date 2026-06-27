@@ -284,7 +284,7 @@ export default function OrderDetailsView() {
                           </div>
                           <div className="flex-1">
                             <p className="text-sm font-medium text-gray-900">Delivered</p>
-                            <p className="text-xs text-gray-500 Package has been delivered" />
+                            <p className="text-xs text-gray-500">Package has been delivered</p>
                           </div>
                         </div>
                       )}

@@ -163,7 +163,7 @@ const useItemSubmit = (id) => {
                     setValue("variant", res.item_attribute.variant)
                     setCheckedItems(res.item_attribute.checkedItems)
                 }
-                setNewImage(res?.images)
+                setNewImage(res?.images || [])
                 // handleProductTap("Item Info", true);
             }
             console.log("resData : ", resData);

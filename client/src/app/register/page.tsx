@@ -78,7 +78,7 @@ function RegisterForm() {
         password: formData.password,
       })).unwrap();
       
-      toast.success('Registration successful! Welcome to Shivanya masale!');
+      toast.success('Registration successful! Welcome to Shivanya Fresh Masale!');
       
       // Redirect to the intended page
       router.push(redirect);
@@ -112,7 +112,7 @@ function RegisterForm() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Create your account</h1>
           <p className="text-gray-600">
-            Join Shivanya masale and start your culinary journey today
+            Join Shivanya Fresh Masale and start your culinary journey today
           </p>
         </div>
 
